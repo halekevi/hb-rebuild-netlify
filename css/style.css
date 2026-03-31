@@ -112,6 +112,7 @@ a:hover {
     z-index: 2;
     padding: 90px 15px;
     max-width: 760px;
+    margin-top: 120px;
 }
 
 .hero h1 {
@@ -281,8 +282,13 @@ a:hover {
 .barber-card img {
     height: 300px;
     object-fit: cover;
+    object-position: center 25%;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
+}
+
+.barber-img-kenyatte {
+    object-position: center 18%;
 }
 
 .muted {
@@ -563,6 +569,7 @@ a:hover {
     .hero-content {
         padding-top: 70px;
         padding-bottom: 70px;
+        margin-top: 70px;
     }
 
     .gallery-item img {
