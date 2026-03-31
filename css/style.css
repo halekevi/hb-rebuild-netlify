@@ -104,7 +104,7 @@ a:hover {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.46));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.22));
 }
 
 .hero-content {
