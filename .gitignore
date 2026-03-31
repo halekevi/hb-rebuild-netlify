@@ -1,0 +1,6 @@
+# OS / editor temp files
+~$*.docx
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db

@@ -21,4 +21,5 @@ This is a static HTML/CSS/JS rebuild of the Heritage Barbershop site, ready for 
 
 - This is a static site, so no server setup is needed.
 - `netlify.toml` is included and already points publish to the root folder.
-- If contact form processing is needed later, we can convert the current form to a Netlify form.
+- Booking form is set up for Netlify Forms (`name="appointment"` + `data-netlify="true"`).
+- Successful submissions redirect to `thank-you.html`.
