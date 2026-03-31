@@ -8,6 +8,8 @@
     var filterButtons = document.querySelectorAll(".btn-filter");
     var galleryItems = document.querySelectorAll(".gallery-item");
     var faqButtons = document.querySelectorAll(".faq-item");
+    var revealSections = document.querySelectorAll("main .section");
+    var revealCards = document.querySelectorAll(".service-card, .barber-card, .review-card, .article-card, .gallery-item, .contact-card, .booking-form");
     var yearEl = document.getElementById("year");
     var dateInput = document.getElementById("date");
     var timeSelect = document.getElementById("time");
@@ -113,6 +115,45 @@
         });
     }
 
+    function setupRevealAnimations() {
+        var allRevealItems = [];
+        revealSections.forEach(function (section, idx) {
+            section.classList.add("reveal");
+            if (idx % 2 === 0) {
+                section.classList.add("slide-left");
+            } else {
+                section.classList.add("slide-right");
+            }
+            allRevealItems.push(section);
+        });
+
+        revealCards.forEach(function (card, idx) {
+            card.classList.add("reveal");
+            if (idx % 2 === 0) {
+                card.classList.add("slide-left");
+            } else {
+                card.classList.add("slide-right");
+            }
+            allRevealItems.push(card);
+        });
+
+        if (!("IntersectionObserver" in window)) {
+            allRevealItems.forEach(function (el) { el.classList.add("in-view"); });
+            return;
+        }
+
+        var observer = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in-view");
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
+
+        allRevealItems.forEach(function (el) { observer.observe(el); });
+    }
+
     function populateTimeSlots() {
         if (!timeSelect) return;
         var slots = [
@@ -147,6 +188,7 @@
     toggleBackToTop();
     setActiveNav();
     startStatsWhenVisible();
+    setupRevealAnimations();
     setupGalleryFilter();
     setupFaq();
     populateTimeSlots();
